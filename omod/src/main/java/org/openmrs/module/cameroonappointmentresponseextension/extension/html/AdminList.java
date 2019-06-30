@@ -43,8 +43,7 @@ public class AdminList extends AdministrationSectionExt {
 		
 		Map<String, String> map = new HashMap<String, String>();
 		
-		map.put("module/cameroonappointmentresponseextension/cameroonappointmentresponseextension.form",
-		    "cameroonappointmentresponseextension.title");
+		map.put("module/cameroonappointmentresponseextension/cameroonappointmentresponseextension.form", "cameroonappointmentresponseextension.title");
 		
 		return map;
 	}
