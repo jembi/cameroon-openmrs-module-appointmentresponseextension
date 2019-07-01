@@ -12,7 +12,7 @@ import org.openmrs.module.appointments.web.extension.AppointmentResponseExtensio
 import org.springframework.stereotype.Component;
 
 @Component
-public class EmergencyContactDetails implements AppointmentResponseExtension {
+public class AdditionalDetails implements AppointmentResponseExtension {
 	
 	@Override
 	public Map<String, String> run(Appointment appointment) {
