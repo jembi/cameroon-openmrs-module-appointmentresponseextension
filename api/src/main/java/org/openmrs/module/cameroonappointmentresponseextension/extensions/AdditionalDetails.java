@@ -19,7 +19,7 @@ public class AdditionalDetails implements AppointmentResponseExtension {
 		Map<String, String> additionalInfo = new HashMap<String, String>();
 		Patient patient = appointment.getPatient();
 		additionalInfo.put("Patient Phone number", getPersonAttributeValue("PERSON_ATTRIBUTE_TYPE_PHONE_NUMBER", patient));
-		additionalInfo.put("Village", appointment.getPatient().getPersonAddress().getCityVillage());
+		additionalInfo.put("Village", getVillage(patient));
 		additionalInfo.put("Emergency contact name", getPersonAttributeValue("emergencyContactName", patient));
 		additionalInfo.put("Emergency contact number", getPersonAttributeValue("emergencyContactNumber", patient));
 		additionalInfo.put("Emergency contact relationship", getPersonAttributeValue("emergencyContactRelationship", patient));
@@ -33,5 +33,13 @@ public class AdditionalDetails implements AppointmentResponseExtension {
 			return patient.getAttribute(personAttributeType).getValue();
 		}
 		return "";
+	}
+	
+	public String getVillage(Patient patient) {
+		String villageName = "";
+		if (patient.getPersonAddress() != null) {
+			villageName = patient.getPersonAddress().getCityVillage();
+		}
+		return villageName;
 	}
 }
