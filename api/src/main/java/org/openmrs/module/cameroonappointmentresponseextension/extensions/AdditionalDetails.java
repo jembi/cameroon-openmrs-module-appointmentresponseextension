@@ -18,6 +18,8 @@ public class AdditionalDetails implements AppointmentResponseExtension {
 	public Map<String, String> run(Appointment appointment) {
 		Map<String, String> additionalInfo = new HashMap<String, String>();
 		Patient patient = appointment.getPatient();
+		additionalInfo.put("Patient Phone number", getPersonAttributeValue("PERSON_ATTRIBUTE_TYPE_PHONE_NUMBER", patient));
+		additionalInfo.put("Village", appointment.getPatient().getPersonAddress().getCityVillage());
 		additionalInfo.put("Emergency contact name", getPersonAttributeValue("emergencyContactName", patient));
 		additionalInfo.put("Emergency contact number", getPersonAttributeValue("emergencyContactNumber", patient));
 		additionalInfo.put("Emergency contact relationship", getPersonAttributeValue("emergencyContactRelationship", patient));
